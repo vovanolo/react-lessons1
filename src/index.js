@@ -3,14 +3,17 @@ import ReactDOM from "react-dom";
 
 const link = React.createElement(
   "a",
-  {
-    href: "http://www.google.com",
-    target: "_blank",
-  },
-  "Посилання на google"
+  { href: "http://www.google.com" },
+  "Посилання на гугл"
 );
 
-ReactDOM.render(link, document.getElementById("root"));
+const header = React.createElement("h1", {}, "Заголовок сайту");
 
-// Домашнє!!!!
-// створити блок div з наповнення, створити img зі всіма властивостями, та тег h1
+const headerTwo = React.createElement("h2", {}, "заголовок номер два");
+
+const block = React.createElement("div", null, header, headerTwo, link);
+
+ReactDOM.render(block, document.getElementById("root"));
+
+// домашнє завдання
+// створити елемент nav всередині якого буде список ul з чотирма елементами li
