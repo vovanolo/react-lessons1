@@ -1,46 +1,67 @@
-import React from "react";
-import Section from "./Section";
-import Weather from "./Weather";
-import Booklist from "./Booklist";
+import Card from "./Card";
+import Footer from "./Footer";
+// import { Button, Alert } from "react-bootstrap";
+// import Button from "react-bootstrap/Button";
+import Button from "@material-ui/core/Button";
+import { makeStyles } from "@material-ui/core/styles";
+import AppBar from "@material-ui/core/AppBar";
+import Toolbar from "@material-ui/core/Toolbar";
+import Typography from "@material-ui/core/Typography";
+// import Button from "@material-ui/core/Button";
+import IconButton from "@material-ui/core/IconButton";
+import MenuIcon from "@material-ui/icons/Menu";
 
-const favouriteBooks = [
-  { id: 1, name: "Book1" },
-  { id: 2, name: "Book2" },
-  { id: 3, name: "Book3" },
-  { id: 4, name: "Book4" },
-  { id: 5, name: "Book5" },
-];
+const useStyles = makeStyles((theme) => ({
+  root: {
+    flexGrow: 1,
+  },
+  menuButton: {
+    marginRight: theme.spacing(2),
+  },
+  title: {
+    flexGrow: 1,
+  },
+}));
 
 export default function App() {
+  const classes = useStyles();
   return (
     <div>
-      <h1>Sait dla pogody</h1>
-      <Section name="Погода у львові">
-        <Weather temperature={7} vologist="70%" />
-      </Section>
-      <Section name="Погода у Франківську">
-        <Weather temperature={8} vologist="80%" />
-      </Section>
-      <Section name="Погода у Києві">
-        <Weather temperature={9} vologist="90%" />
-      </Section>
-
-      <h2>Booklist</h2>
-      <Booklist books={favouriteBooks} />
+      <Card
+        imgLink="https://wroom.ru/i/news/11056img2.jpg"
+        name="vantazivka"
+        price={10}
+      />
+      <Footer />
+      {/* <Button variant="danger">Danger</Button>
+      <Alert variant="danger">This is alert—check it out!</Alert> */}
+      <Button variant="contained" color="primary" disableElevation>
+        Disable elevation
+      </Button>
+      <div className={classes.root}>
+        <AppBar position="static">
+          <Toolbar>
+            <IconButton
+              edge="start"
+              className={classes.menuButton}
+              color="inherit"
+              aria-label="menu"
+            >
+              <MenuIcon />
+            </IconButton>
+            <Typography variant="h6" className={classes.title}>
+              News
+            </Typography>
+            <Button color="inherit">Login</Button>
+          </Toolbar>
+        </AppBar>
+      </div>
     </div>
   );
 }
 
-// Домашнє завдання https://github.com/goitacademy/react-homework/tree/master/homework-01/social-profile
-// створити компонент Profile, підєднати його до App та за допогомю props передати дані в Profile та відобразити
-// const user = {
-//   name: "Jacques Gluke",
-//   tag: "jgluke",
-//   location: "Ocho Rios, Jamaica",
-//   avatar: "https://www.flaticon.com/svg/static/icons/svg/3784/3784184.svg",
-//   stats: {
-//     followers: 5603,
-//     views: 4827,
-//     likes: 1308,
-//   },
-// };
+// Домашнє завдання
+// Створити три комоненти Navbar Footer і Main
+// Застилізувати ці компоненти довільно
+// для інформації використовувати props
+// в кожній компоненті має бути описано propTypes

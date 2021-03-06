@@ -1,0 +1,14 @@
+.name {
+  color: red;
+  text-align: center;
+  font-size: 48px;
+  font-weight: 600;
+}
+
+.price {
+  font-size: 40px;
+  font-weight: 900;
+  text-align: center;
+  color: blue;
+  background-color: green;
+}
