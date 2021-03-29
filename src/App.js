@@ -1,14 +1,42 @@
-import React from "react";
-import Navbar from "./Navbar";
-import Counter from "./Counter";
-export default function App() {
-  return (
-    <div>
-      Hello app
-      <Navbar name="navbar component" year={2021} description="safasfasfas" />
-      <Counter initialValue={20} />
-    </div>
-  );
+import React, { Component } from "react";
+import Test from "./Test";
+import TaskEditor from "./TaskEditor";
+import createTask from "./createTask";
+import TaskList from "./TaskList";
+
+export default class App extends Component {
+  state = {
+    tasks: [],
+  };
+
+  addTask = () => {
+    const task = createTask();
+    this.setState((prevState) => {
+      return {
+        tasks: [...prevState.tasks, task],
+      };
+    });
+  };
+
+  deleteTask = (id) => {
+    this.setState((prevState) => {
+      return {
+        tasks: prevState.tasks.filter((task) => task.id !== id),
+      };
+    });
+  };
+
+  render() {
+    const { tasks } = this.state;
+    return (
+      <div>
+        hello app
+        <Test title="test component" price={10} />
+        <TaskEditor onAddTasks={this.addTask} />
+        <TaskList tasks={tasks} onDeleteTask={this.deleteTask} />
+      </div>
+    );
+  }
 }
 
-// зробити та застилізувати компонент каунтер
+// Дз застилізувати всі компоненти звязані з добавлянням завдань
