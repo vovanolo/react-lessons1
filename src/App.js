@@ -1,15 +1,14 @@
 import React from "react";
-// import FriendList from "./FriendList";
-// import friends from "./friends.json";
+import TransactionHistory from "./TransactionHistory";
+import transaction from "./transaction.json";
 import Form from "./Form";
+
 export default function App() {
   return (
     <div>
-      hello
-      {/* <FriendList friends={friends} /> */}
+      hello app
+      <TransactionHistory items={transaction} />
       <Form />
     </div>
   );
 }
-
-// домашнє попрактикувати з інпутам
