@@ -1,14 +1,15 @@
 import React from "react";
-import TransactionHistory from "./TransactionHistory";
-import transaction from "./transaction.json";
 import Form from "./Form";
 
 export default function App() {
   return (
     <div>
-      hello app
-      <TransactionHistory items={transaction} />
+      Hello app
       <Form />
     </div>
   );
 }
+
+// домашнє завдання
+// знайти хороший макет для проекту для обговорення - ! це основне завдання
+// спробувати зробити з скулоджи дз 2 - перший пункт

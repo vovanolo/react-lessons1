@@ -3,49 +3,72 @@ import React, { Component } from "react";
 export default class Form extends Component {
   state = {
     name: "",
-    password: "",
+    surname: "",
+    description: "",
+    agreed: false,
   };
 
   handleChange = (e) => {
-    const { name, value } = e.target;
-
-    this.setState({ [name]: value });
+    this.setState({ [e.target.name]: e.target.value });
   };
 
-  handleSubmit = (e) => {
+  handleCheckboxChange = (e) => {
+    this.setState({ agreed: e.target.checked });
+  };
+
+  handleFormSubmit = (e) => {
     e.preventDefault();
-    console.log(
-      `You have been succesfuly registered as ${this.state.name} and your password is ${this.state.password}`
-    );
+    console.log(`You have been registered as ${this.state.name} ${this.state.surname}
+    Your comment ${this.state.description}
+    `);
   };
 
   render() {
     return (
       <div>
-        <form onSubmit={this.handleSubmit}>
+        Our Form
+        <form onSubmit={this.handleFormSubmit}>
           <label>
-            Name
+            please enter some text
             <input
               type="text"
               name="name"
-              placeholder="Введіть імя"
               value={this.state.name}
               onChange={this.handleChange}
             />
           </label>
           <br />
           <label>
-            Password
+            please enter your surname
             <input
-              type="password"
-              name="password"
-              placeholder="введіть пароль"
-              value={this.state.password}
+              type="text"
+              name="surname"
+              value={this.state.surname}
               onChange={this.handleChange}
             />
           </label>
           <br />
-          <button type="submit">Зареєструватись як {this.state.name}</button>
+          <textarea
+            name="description"
+            id=""
+            cols="30"
+            rows="10"
+            value={this.state.description}
+            onChange={this.handleChange}
+          ></textarea>
+          <br />
+          <label>
+            <input
+              type="checkbox"
+              checked={this.state.agreed}
+              onChange={this.handleCheckboxChange}
+            />
+            Погодитись з умовами користувача
+          </label>
+          <br />
+          <button type="submit" disabled={!this.state.agreed}>
+            Register as {this.state.name} {this.state.surname}
+          </button>
         </form>
       </div>
     );
