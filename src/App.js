@@ -1,15 +1,17 @@
-import React from "react";
-import Form from "./Form";
+import React from "react"
+import Form from "./Form"
+import FeedBacks from "./FeedBacks"
 
 export default function App() {
   return (
     <div>
-      Hello app
+      hello app
       <Form />
+      <FeedBacks />
     </div>
-  );
+  )
 }
 
-// домашнє завдання
-// знайти хороший макет для проекту для обговорення - ! це основне завдання
-// спробувати зробити з скулоджи дз 2 - перший пункт
+// дз
+// закінчити домашню роботу з скулоджи
+// https://github.com/goitacademy/react-homework/blob/master/homework-02/feedback/README.ua.md
